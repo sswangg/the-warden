@@ -5,5 +5,3 @@ __pycache__/
 docker-compose.yml
 Dockerfile
 thing.yaml
-.env
-.env
