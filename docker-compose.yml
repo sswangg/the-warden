@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  bot-ubuntu-server:
+    image: discord-bot-sophia:latest
+    restart: always
+    volumes:
+      - '${PWD}/thing.yaml:/Volumes/wyh/sophia/warden/thing.yaml'
