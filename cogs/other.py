@@ -1,4 +1,6 @@
-import discord, asyncio, ctypes.util
+import asyncio
+import ctypes.util
+import discord
 from discord.ext import commands
 from discord.utils import get
 
@@ -134,6 +136,7 @@ class Other(commands.Cog):
              'bot and discord to communicate in milliseconds. IT DOES NOT VARY DEPENDING ON WHO USES THE COMMAND')
     async def ping(self, ctx):
         await ctx.send(f'Pong! {round(self.bot.latency * 1000, 2)} ms')
+
 
 def setup(bot):
     bot.add_cog(Other(bot))

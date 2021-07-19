@@ -54,8 +54,7 @@ async def on_command_error(ctx, error):
     await ctx.channel.send(embed=discord.Embed(description=description,
                                                color=discord.Color.from_rgb(214, 11, 11)))
 
-#bot.load_extension("cogs.nsfw_detect")
+# bot.load_extension("cogs.nsfw_detect")
 bot.load_extension('cogs.moderation')
 bot.load_extension('cogs.other')
-bot.load_extension('cogs.write_stuff')
 bot.run(TOKEN)
