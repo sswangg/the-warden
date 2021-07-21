@@ -1,8 +1,6 @@
 # The Warden
 
-[![license](https://img.shields.io/github/license/kitian616/jekyll-TeXt-theme.svg)](https://github.com/kitian616/jekyll-TeXt-theme/blob/master/LICENSE)
-
-> A Discord bot for moderating degenerates, implemented in Python
+A Discord bot for moderating degenerates, implemented in Python
 
 !["Some of the bot's help messages"](https://i.imgur.com/qJAn3KQ.png)
 
