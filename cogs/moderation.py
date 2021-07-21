@@ -18,7 +18,7 @@ def can_banish():
     return commands.check(predicate)
 
 
-# Change this
+# Change this (maybe)
 def jail_roles(member):
     j_roles = [get(member.guild.roles, name="Horny inmate"), get(member.guild.roles, name="Horny Inmate 0001"),
                get(member.guild.roles, name="Horny Inmate 0002"),
@@ -41,6 +41,14 @@ class Moderation(commands.Cog):
                           "1": "Horny Inmate 0001",
                           "2": "Horny Inmate 0002",
                           "3": "Horny Inmate 0003"}
+        self.timers = {}
+
+    # Makes auto-release timer
+    async def timer(self, ctx, duration, member):
+        await asyncio.sleep(duration)
+        if member in self.jailed:
+            ctx.invoke(self.bot.get_command("release"), member=member)
+            self.jailed.discard(member)
 
     @commands.command(
         brief="Sends a member to horny jail",
@@ -81,12 +89,7 @@ class Moderation(commands.Cog):
         await ctx.channel.send(f"Sent {member} to {cell} in horny jail for {sentence_time} minutes")
         await member.add_roles(horny_role, cell_role)  # Bonk
         self.jailed.add(member)
-        await asyncio.sleep(sentence_time * 60)  # Start timer
-        # And release if not manually released before
-        if member in self.jailed:
-            await member.remove_roles(horny_role, cell_role)
-            await ctx.channel.send(f"Released {member} from horny jail")
-            self.jailed.discard(member)
+        self.timers[member] = asyncio.create_task(self.timer(ctx, sentence_time * 60, member))
 
     @commands.command(
         brief="Banishes a member to THE SHADOW REALM™️",
@@ -116,7 +119,7 @@ class Moderation(commands.Cog):
     async def release(self, ctx, member: discord.Member):
         banish_role = get(member.guild.roles, name="Banished")  # Shadow realm role
         if jail_roles(member):  # Only run if the member is in jail
-            if banish_role in member.roles:  # Also unbanish if applicable
+            if banish_role in member.roles:  # Unbanish if applicable
                 if can_banish():
                     await member.remove_roles(banish_role)
                     await ctx.channel.send(f"Released {member} from THE SHADOW REALM™️")
@@ -126,6 +129,7 @@ class Moderation(commands.Cog):
             if j_roles := jail_roles(member):  # Unbonk
                 await ctx.channel.send(f"Released {member} from horny jail")
                 await member.remove_roles([r for r in j_roles])
+                self.timers[member].cancel()
                 self.jailed.discard(member)
         else:
             await ctx.channel.send(f"There is nothing to release {member} from!")
