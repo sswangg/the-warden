@@ -1,4 +1,4 @@
-discord.py==1.7.1
+discord.py==1.7.3
 NudeNet==2.0.9
 Pillow==8.2.0
 pynacl==1.4.0
