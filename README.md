@@ -1,5 +1,7 @@
 <img width="100" height="100" align="left" style="float: left; margin: 0 10px 0 0;" alt="The Warden pfp" src="https://cdn.discordapp.com/avatars/807312711028310046/93f370db64023a2741284df215dd4392.png"> 
+
 # The Warden
+
 [![license](https://img.shields.io/github/license/kitian616/jekyll-TeXt-theme.svg)](https://github.com/kitian616/jekyll-TeXt-theme/blob/master/LICENSE)
 
 > A Discord bot for moderating degenerates, implemented in Python
