@@ -1,2 +1,2 @@
 # The Warden
-A Discord bot for moderation of degenerates implemented in Python
+A Discord bot for moderating degenerates, implemented in Python
