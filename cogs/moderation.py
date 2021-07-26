@@ -103,7 +103,7 @@ class Moderation(commands.Cog):
             await ctx.channel.send(f"{member} is already in THE SHADOW REALM™️")
             return
         if j_roles := jail_roles(member):
-            await member.remove_roles([r for r in j_roles])
+            await member.remove_roles(*j_roles)
             await ctx.channel.send(f"Freed prisoner... ready for transport")
         await member.add_roles(role)
         self.jailed.add(member)
@@ -128,8 +128,11 @@ class Moderation(commands.Cog):
                     await ctx.channel.send("You don't have permission to release from THE SHADOW REALM™️")
             if j_roles := jail_roles(member):  # Unbonk
                 await ctx.channel.send(f"Released {member} from horny jail")
-                await member.remove_roles([r for r in j_roles])
-                self.timers[member].cancel()
+                await member.remove_roles(*j_roles)
+                try:
+                    self.timers[member].cancel()
+                except KeyError:
+                    pass
                 self.jailed.discard(member)
         else:
             await ctx.channel.send(f"There is nothing to release {member} from!")

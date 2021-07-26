@@ -27,30 +27,28 @@ async def on_guild_join(guild):
     )
     await general.send(embed=embed)
 
-
-error_message = {commands.CommandNotFound: "That command doesn't exist",
-                 commands.BotMissingPermissions: "I don't have the permissions needed to run this command",
-                 commands.MissingRole: "You don't have the role(s) needed to use this command",
-                 commands.BadArgument: "Unexpected argument (check your capitalization and parameter order)",
-                 commands.MissingRequiredArgument: f"Missing required argument: `{error.param}`. "
-                                                   f"If you think you included this, check the order",
-                 commands.TooManyArguments: "Too many arguments",
-                 commands.CheckFailure: "You don't have the permissions needed to use this command",
-                 AttributeError: "It's probably due to a spelling error somewhere. Please notify Saph#6803"
-}
-
-
+"""
 # Very bad error handling
 # Update: Slightly less bad error handling
 @bot.event
 async def on_command_error(ctx, error):
+    error_message = {commands.CommandNotFound: "That command doesn't exist",
+                     commands.BotMissingPermissions: "I don't have the permissions needed to run this command",
+                     commands.MissingRole: "You don't have the role(s) needed to use this command",
+                     commands.BadArgument: "Unexpected argument (check your capitalization and parameter order)",
+                     commands.MissingRequiredArgument: f"Missing required argument.",
+                     commands.TooManyArguments: "Too many arguments",
+                     commands.CheckFailure: "You don't have the permissions needed to use this command",
+                     AttributeError: "It's probably due to a spelling error somewhere. Please notify Saph#6803"
+                     }
     try:
-        description = "Error: "+error_message[error]
+        description = "Error: " + error_message[error]
     except KeyError:
         print(error)
         await ctx.channel.send("<@363690578950488074>")
-        description = "An unexpected error occurred: "+str(error)
+        description = "An unexpected error occurred: " + str(error)
     await ctx.channel.send(embed=discord.Embed(description=description, color=discord.Color.from_rgb(214, 11, 11)))
+"""
 
 # bot.load_extension("cogs.nsfw_detect")
 bot.load_extension("cogs.moderation")
