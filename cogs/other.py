@@ -25,7 +25,7 @@ class Other(commands.Cog):
 
         @bot.listen("on_message_edit")
         async def on_message_edit(before, after):
-            if before.author.bot:
+            if before.author.bot or before == after:
                 return
             self.edit_snipes[before.channel.id] = [before, after]
 
