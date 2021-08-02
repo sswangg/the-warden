@@ -19,17 +19,20 @@ class Other(commands.Cog):
 
         @bot.listen("on_message_delete")
         async def on_message_delete(msg):
+            """Saves the most recently deleted message in every channel the bot can see"""
             if msg.author.bot:
                 return
             self.del_snipes[msg.channel.id] = msg
 
         @bot.listen("on_message_edit")
         async def on_message_edit(before, after):
+            """Saves the most recent message edit in every channel the bot can see"""
             if before.author.bot or before == after:
                 return
             self.edit_snipes[before.channel.id] = [before, after]
 
     def after(self, vc):
+        """Makes the bot disconnect from the vc after finishing"""
         coro = vc.disconnect()
         fut = asyncio.run_coroutine_threadsafe(coro, self.bot.loop)
         fut.result()

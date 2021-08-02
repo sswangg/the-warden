@@ -4,15 +4,15 @@ import asyncio
 import discord
 
 
-# Check for bonk and releasing from horny jail
 def is_authority():
+    """Checks that a member is a mod"""
     async def predicate(ctx):
         return "Authority Ping" in [r.name for r in ctx.author.roles]
     return commands.check(predicate)
 
 
-# Check for banish and releasing from shadow realm
 def can_banish():
+    """Checks that a member is a part of the shadowy organization that runs the world"""
     async def predicate(ctx):
         return ctx.author.id in [380550351423537153, 363690578950488074]
     return commands.check(predicate)
@@ -20,6 +20,7 @@ def can_banish():
 
 # Change this (maybe)
 def jail_roles(member):
+    """Returns all jail roles that a member has"""
     j_roles = [get(member.guild.roles, name="Horny inmate"), get(member.guild.roles, name="Horny Inmate 0001"),
                get(member.guild.roles, name="Horny Inmate 0002"),
                get(member.guild.roles, name="Horny Inmate 0003"),
@@ -43,8 +44,8 @@ class Moderation(commands.Cog):
                           "3": "Horny Inmate 0003"}
         self.timers = {}
 
-    # Makes auto-release timer
     async def timer(self, ctx, duration, member):
+        """Makes an auto-release timer"""
         await asyncio.sleep(duration)
         if member in self.jailed:
             await ctx.invoke(self.bot.get_command("release"), member=member)
