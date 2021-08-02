@@ -2,6 +2,7 @@ from discord.ext import commands
 import discord
 import os
 from dotenv import load_dotenv
+import traceback
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -32,6 +33,7 @@ async def on_guild_join(guild):
 # Update: Slightly less bad error handling
 @bot.event
 async def on_command_error(ctx, error):
+    # Sends an error message
     error_message = {commands.CommandNotFound: "That command doesn't exist",
                      commands.BotMissingPermissions: "I don't have the permissions needed to run this command",
                      commands.MissingRole: "You don't have the role(s) needed to use this command",
@@ -45,9 +47,18 @@ async def on_command_error(ctx, error):
         description = "Error: " + error_message[error]
     except KeyError:
         print(error)
-        await ctx.channel.send("<@363690578950488074>")
         description = "An unexpected error occurred: " + str(error)
     await ctx.channel.send(embed=discord.Embed(description=description, color=discord.Color.from_rgb(214, 11, 11)))
+    # Logs the error in the errors channel
+    error_out = "\n".join(["\\".join(lines.split("\\")[:2] + lines.split("\\")[3:])
+                           for lines in str(traceback.format_exc()).split("\n")])
+    error_log = "\n".join([
+        f"<@!363690578950488074> Error",
+        f"```In Channel: {str(ctx.channel)} ({ctx.channel.id})",
+        f"By User: {str(ctx.author)}({ctx.author.id})",
+        f"Command: {ctx.content}",
+        "\n" f"{error_out}```"])
+    await bot.get_channel(871779186451283968).send(error_log)
 
 
 @commands.command(hidden=True)
