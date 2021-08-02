@@ -47,7 +47,7 @@ class Moderation(commands.Cog):
     async def timer(self, ctx, duration, member):
         await asyncio.sleep(duration)
         if member in self.jailed:
-            ctx.invoke(self.bot.get_command("release"), member=member)
+            await ctx.invoke(self.bot.get_command("release"), member=member)
             self.jailed.discard(member)
 
     @commands.command(

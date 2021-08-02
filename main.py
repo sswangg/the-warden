@@ -27,7 +27,7 @@ async def on_guild_join(guild):
     )
     await general.send(embed=embed)
 
-"""
+
 # Very bad error handling
 # Update: Slightly less bad error handling
 @bot.event
@@ -48,7 +48,26 @@ async def on_command_error(ctx, error):
         await ctx.channel.send("<@363690578950488074>")
         description = "An unexpected error occurred: " + str(error)
     await ctx.channel.send(embed=discord.Embed(description=description, color=discord.Color.from_rgb(214, 11, 11)))
-"""
+
+
+@commands.command(hidden=True)
+@commands.is_owner()
+async def load(module):
+    bot.load_extension(module)
+
+
+@commands.command(hidden=True)
+@commands.is_owner()
+async def unload(module):
+    bot.unload_extension(module)
+
+
+@commands.command(hidden=True)
+@commands.is_owner()
+async def reload(module):
+    bot.unload_extension(module)
+    bot.load_extension(module)
+
 
 # bot.load_extension("cogs.nsfw_detect")
 bot.load_extension("cogs.moderation")
