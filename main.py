@@ -3,6 +3,7 @@ import discord
 import os
 from dotenv import load_dotenv
 import traceback
+import sys
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -32,7 +33,6 @@ async def on_command_error(ctx, error):
     except KeyError:
         if isinstance(error, commands.CommandNotFound):
             return
-        print(error)
         description = "An unexpected error occurred: " + str(error)
     await ctx.channel.send(embed=discord.Embed(description=description, color=discord.Color.from_rgb(214, 11, 11)))
     # Logs the error in the errors channel
@@ -40,10 +40,10 @@ async def on_command_error(ctx, error):
                            for lines in str(traceback.format_exc()).split("\n")])
     error_log = "\n".join([
         f"<@!363690578950488074> Error",
-        f"```In Channel: {str(ctx.channel)} ({ctx.channel.id})",
+        f"```In Channel: {str(ctx.channel)}({ctx.channel.id})",
         f"By User: {str(ctx.author)}({ctx.author.id})",
-        f"Command: {ctx.content}",
-        "\n" f"{error_out}```"])
+        f"Command: {ctx.message.content}",
+        "\n" f"{str(error)}```"])
     await bot.get_channel(871779186451283968).send(error_log)
 
 
