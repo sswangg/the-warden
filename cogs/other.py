@@ -27,7 +27,7 @@ class Other(commands.Cog):
         @bot.listen("on_message_edit")
         async def on_message_edit(before, after):
             """Saves the most recent message edit in every channel the bot can see"""
-            if before.author.bot or before == after:
+            if before.author.bot or before.content == after.content:
                 return
             self.edit_snipes[before.channel.id] = [before, after]
 
