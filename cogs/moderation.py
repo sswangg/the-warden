@@ -30,9 +30,6 @@ def jail_roles(member: discord.Member):
     for role in j_roles:
         if role in member.roles:
             member_roles.append(role)
-    print(j_roles)
-    print(member, member_roles)
-    print(member.roles)
     return member_roles
 
 
