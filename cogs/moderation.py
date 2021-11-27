@@ -19,7 +19,7 @@ def can_banish():
 
 
 # Change this (maybe)
-def jail_roles(member):
+def jail_roles(member: discord.Member):
     """Returns all jail roles that a member has"""
     j_roles = [get(member.guild.roles, name="Horny inmate"), get(member.guild.roles, name="Horny Inmate 0001"),
                get(member.guild.roles, name="Horny Inmate 0002"),
@@ -30,6 +30,9 @@ def jail_roles(member):
     for role in j_roles:
         if role in member.roles:
             member_roles.append(role)
+    print(j_roles)
+    print(member, member_roles)
+    print(member.roles)
     return member_roles
 
 
@@ -48,6 +51,7 @@ class Moderation(commands.Cog):
         """Makes an auto-release timer"""
         await asyncio.sleep(duration)
         if member in self.jailed:
+            member = await member.guild.fetch_member(member.id)
             await ctx.invoke(self.bot.get_command("release"), member=member)
             self.jailed.discard(member)
 
@@ -74,7 +78,7 @@ class Moderation(commands.Cog):
             return
         # Remove all previous jail roles
         if j_roles := jail_roles(member):
-            await member.remove_roles(j_roles)
+            await member.remove_roles(*j_roles)
             await ctx.channel.send("Freed prisoner... ready for transport")
         # Gets jail roles
         horny_role = get(member.guild.roles, name="Horny inmate")

@@ -34,17 +34,15 @@ async def on_command_error(ctx, error):
         if isinstance(error, commands.CommandNotFound):
             return
         description = "An unexpected error occurred: " + str(error)
+        # Logs the error in the errors channel
+        error_log = "\n".join([
+            f"<@!363690578950488074> Error",
+            f"```In Channel: {str(ctx.channel)}({ctx.channel.id})",
+            f"By User: {str(ctx.author)}({ctx.author.id})",
+            f"Command: {ctx.message.content}",
+            "\n"+"".join(traceback.format_exception(type(error), error, error.__traceback__))+"```"])
+        await bot.get_channel(871779186451283968).send(error_log)
     await ctx.channel.send(embed=discord.Embed(description=description, color=discord.Color.from_rgb(214, 11, 11)))
-    # Logs the error in the errors channel
-    error_out = "\n".join(["\\".join(lines.split("\\")[:2] + lines.split("\\")[3:])
-                           for lines in str(traceback.format_exc()).split("\n")])
-    error_log = "\n".join([
-        f"<@!363690578950488074> Error",
-        f"```In Channel: {str(ctx.channel)}({ctx.channel.id})",
-        f"By User: {str(ctx.author)}({ctx.author.id})",
-        f"Command: {ctx.message.content}",
-        "\n" f"{str(error)}```"])
-    await bot.get_channel(871779186451283968).send(error_log)
 
 
 @commands.command(hidden=True)
