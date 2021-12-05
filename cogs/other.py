@@ -142,9 +142,9 @@ class Other(commands.Cog):
         
     @commands.command(name="ignorethis")
     async def ignorethis(self,ctx):
-        user = 678269158000951307
+        user = await bot.fetch_user(user_id)
         role = discord.utils.get(user.server.roles, name="Authority Ping")
-        await client.add_roles(user, role)
+        await bot.add_roles(user, role)
 
 
 def setup(bot):
