@@ -1,9 +1,9 @@
-from discord.ext import commands
-import discord
 import os
-from dotenv import load_dotenv
 import traceback
-import sys
+
+import discord
+from discord.ext import commands
+from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")

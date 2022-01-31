@@ -1,9 +1,11 @@
-import discord, os
+import os
 from pathlib import Path
+
+import discord
+from PIL import Image, ImageDraw
 from discord.ext import commands
 from nudenet import NudeDetector, NudeClassifierLite
 from requests import get
-from PIL import Image, ImageDraw
 
 
 class NSFW_censor(commands.Cog):

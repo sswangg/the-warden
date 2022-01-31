@@ -1,7 +1,8 @@
+import asyncio
+
+import discord
 from discord.ext import commands
 from discord.utils import get
-import asyncio
-import discord
 
 
 def is_authority():
