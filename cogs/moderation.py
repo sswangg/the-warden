@@ -24,8 +24,7 @@ def jail_roles(member: discord.Member):
     j_roles = [get(member.guild.roles, name="Horny inmate"), get(member.guild.roles, name="Horny Inmate 0001"),
                get(member.guild.roles, name="Horny Inmate 0002"),
                get(member.guild.roles, name="Horny Inmate 0003"),
-               get(member.guild.roles, name="MAXIMUM SECURITY HORNY MF"),
-               get(member.guild.roles, name="Banished")]
+               get(member.guild.roles, name="MAXIMUM SECURITY HORNY MF")]
     member_roles = []
     for role in j_roles:
         if role in member.roles:
@@ -120,23 +119,25 @@ class Moderation(commands.Cog):
     @is_authority()
     async def release(self, ctx, member: discord.Member):
         banish_role = get(member.guild.roles, name="Banished")  # Shadow realm role
-        if jail_roles(member):  # Only run if the member is in jail
-            if banish_role in member.roles:  # Unbanish if applicable
-                if can_banish():
-                    await member.remove_roles(banish_role)
-                    await ctx.channel.send(f"Released {member} from THE SHADOW REALM™️")
-                    self.jailed.discard(member)
-                else:
-                    await ctx.channel.send("You don't have permission to release from THE SHADOW REALM™️")
-            if j_roles := jail_roles(member):  # Unbonk
-                await ctx.channel.send(f"Released {member} from horny jail")
-                await member.remove_roles(*j_roles)
-                try:
-                    self.timers[member].cancel()
-                except KeyError:
-                    pass
+        released = False
+        if banish_role in member.roles:  # Unbanish if applicable
+            if can_banish():
+                await member.remove_roles(banish_role)
+                await ctx.channel.send(f"Released {member} from THE SHADOW REALM™️")
                 self.jailed.discard(member)
-        else:
+                released = True
+            else:
+                await ctx.channel.send("You don't have permission to release from THE SHADOW REALM™️")
+        if j_roles := jail_roles(member):  # Unbonk
+            await ctx.channel.send(f"Released {member} from horny jail")
+            await member.remove_roles(*j_roles)
+            try:
+                self.timers[member].cancel()
+            except KeyError:
+                pass
+            self.jailed.discard(member)
+            released = True
+        if not released:
             await ctx.channel.send(f"There is nothing to release {member} from!")
             return
 
