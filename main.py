@@ -45,23 +45,25 @@ async def on_command_error(ctx, error):
     await ctx.channel.send(embed=discord.Embed(description=description, color=discord.Color.from_rgb(214, 11, 11)))
 
 
-@commands.command(hidden=True)
+@bot.command(hidden=True)
 @commands.is_owner()
-async def load(module):
+async def load(ctx, module):
     bot.load_extension(module)
+    await ctx.channel.send(f"Loaded {module}")
 
 
-@commands.command(hidden=True)
+@bot.command(hidden=True)
 @commands.is_owner()
-async def unload(module):
+async def unload(ctx, module):
     bot.unload_extension(module)
+    await ctx.channel.send(f"Unloaded {module}")
 
 
-@commands.command(hidden=True)
+@bot.command(hidden=True)
 @commands.is_owner()
-async def reload(module):
-    bot.unload_extension(module)
-    bot.load_extension(module)
+async def reload(ctx, module):
+    bot.reload_extension(module)
+    await ctx.channel.send(f"Reloaded {module}")
 
 
 bot.load_extension("cogs.moderation")

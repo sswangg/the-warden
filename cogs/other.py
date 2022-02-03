@@ -88,8 +88,8 @@ class Other(commands.Cog):
         else:
             await channel.connect()
         vc = get(self.bot.voice_clients)
-        vc.play(discord.FFmpegPCMAudio(executable="/usr/local/bin/ffmpeg", source="rickroll.mp3"),
-                after=lambda e: self.after(vc))
+        vc.play(discord.FFmpegPCMAudio(executable="/usr/local/bin/ffmpeg",
+                                       source="rickroll.mp3"), after=lambda e: self.after(vc))
 
     @commands.command(
         help="Gives specifics about commands and categories, in an all new ~fancy~ format. Welcome to The Warden 2.0!",
