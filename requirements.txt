@@ -5,3 +5,4 @@ pynacl==1.4.0
 PyYAML==5.4.1
 requests==2.25.1
 python-dotenv==0.18.0
+youtube-dl==2021.12.17

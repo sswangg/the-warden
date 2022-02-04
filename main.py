@@ -68,4 +68,5 @@ async def reload(ctx, module):
 
 bot.load_extension("cogs.moderation")
 bot.load_extension("cogs.other")
+bot.load_extension("cogs.music")
 bot.run(TOKEN)
