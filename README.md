@@ -1,12 +1,66 @@
-# The Warden
+<div align="center">
+  <img src="https://i.imgur.com/zDCzeOH.png" align="center" width="450">
+  <br>
+  <strong><i>A unique moderation bot for Discord</i></strong>
+  <br>
+  <br>
 
-A Discord bot for moderating degenerates, implemented in Python
+  <a href="https://www.python.org/downloads/">
+    <img src="https://img.shields.io/badge/Made%20With-Python%203.9-blue.svg?style=for-the-badge&logo=Python" alt="Made with Python 3.9">
+  </a>
 
-!["Some of the bot's help messages"](https://i.imgur.com/qJAn3KQ.png)
+  <a href="https://github.com/sswangg/the-warden/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-mit-e74c3c.svg?style=for-the-badge" alt="MIT License">
+  </a>
+  
+  <br>
+  <br>
+  <!--<img src="https://i.imgur.com/qJAn3KQ.png" align="center" width="700">-->
+  <img src="https://i.imgur.com/QrPkRa8.png" align="center" width="600">
 
-### About
-The Warden is a quality of life bot developed for a server of degenerates that go to school together. The server contains a "horny jail" which is essentially a time-out zone, as users in horny jail can only see and talk in the horny jail channel.
+<br>
+</div>
 
-The main function of The Warden is to make utilizing the Horny Jail as simple as possible. You can use owo bonk to send someone to Horny Jail, easily choosing the cell they get sent to and for how long. No more are the times of people being forgotten in jail, and no more are the times of the wrong roles being assigned. The Warden does it all automatically.
+## About
+The Warden is a custom bot who's main feature is the ability to give users a pre-set role and automatically remove it after a timer runs out, which is useful for operating the "honry jail" in the server The Warden was developed for. It can also send the most recently deleted message in a channel, act as a music bot, and remind you to go to online class.
 
-All other commands are nice but unimportant, other than imbored which makes the bot join a vc and play Never Gonna Give You Up. 
+Note that The Warden is not designed for useage in other servers, and there is no easy way to configure The Warden to suit your needs.
+
+## Installation
+
+Information on making a bot account can be found in the [discord.py documentation](https://discordpy.readthedocs.io/en/stable/discord.html). Once you've done that:
+
+Clone the repo
+
+```console
+$ git clone https://github.com/sswangg/the-warden.git
+$ cd the-warden
+```
+
+Create a file named `.env` with your token in the same directory as main.py
+```
+# .env
+DISCORD_TOKEN=your-bot-token
+```
+
+Create a virtual environment and activate it
+
+```console
+$ python3 -m venv .
+$ source bin/activate
+```
+
+Install dependancies
+
+```console
+$ pip3 install -r requirements.txt
+```
+
+And start The Warden
+
+```console
+$ python3 main.py
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
