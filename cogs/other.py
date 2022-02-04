@@ -88,7 +88,7 @@ class Other(commands.Cog):
         else:
             await channel.connect()
         vc = get(self.bot.voice_clients)
-        vc.play(discord.FFmpegPCMAudio(executable="/usr/local/bin/ffmpeg",
+        vc.play(discord.FFmpegPCMAudio(executable="/usr/bin/ffmpeg",
                                        source="rickroll.mp3"), after=lambda e: self.after(vc))
 
     @commands.command(
