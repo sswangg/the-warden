@@ -62,5 +62,19 @@ And start The Warden
 $ python3 main.py
 ```
 
+## Contributing
+The Warden is actively being developed and contributions are always welcome
+
+List of features I want to implement:
+- Play music from YouTube playlists
+- Track covid cases in AAPS
+- Ping to remind people to go to class according to Pioneer's bell schedule
+- Send a link to this discord repository
+- Display the cureent uptime
+- config.yaml file so that the bot is actually configurable
+- Make the bot configurable through commands so that it can be released into the wild
+
+Feel free to suggest a feature and maybe even offer some money with it.
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
