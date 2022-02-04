@@ -26,7 +26,7 @@ The Warden is a custom bot who's main feature is the ability to give users a pre
 
 Note that The Warden is not designed for useage in other servers, and there is no easy way to configure The Warden to suit your needs.
 
-## Installation
+## Setup
 
 Information on making a bot account can be found in the [discord.py documentation](https://discordpy.readthedocs.io/en/stable/discord.html). Once you've done that:
 
@@ -61,6 +61,16 @@ And start The Warden
 ```console
 $ python3 main.py
 ```
+
+## Commands
+owo help - send the help message
+owo bonk - send a user to horny jail
+owo banish - send a user to the shadow realm
+owo release - release a user from horny jail/the shadow realm
+owo s - send the most recently deleted message in a channel
+owo es - send the most recntly edited in a channel, pre-edit
+owo imbored - rickroll a voice channel
+owo ping - send the latency
 
 ## Contributing
 The Warden is actively being developed and contributions are always welcome
