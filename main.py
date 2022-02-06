@@ -47,6 +47,13 @@ async def on_command_error(ctx, error):
 
 @bot.command(hidden=True)
 @commands.is_owner()
+async def kill(ctx):
+    await ctx.channel.send("Terminating")
+    await bot.close()
+
+
+@bot.command(hidden=True)
+@commands.is_owner()
 async def load(ctx, module):
     bot.load_extension(module)
     await ctx.channel.send(f"Loaded {module}")
