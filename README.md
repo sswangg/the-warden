@@ -80,7 +80,7 @@ List of features I want to implement:
 - Track covid cases in AAPS
 - Ping to remind people to go to class according to Pioneer's bell schedule
 - Send a link to this discord repository
-- Display the cureent uptime
+- Display the current uptime
 - config.yaml file so that the bot is actually configurable
 - Make the bot configurable through commands so that it can be released into the wild
 
