@@ -67,7 +67,7 @@ class Moderation(commands.Cog):
     @is_authority()
     async def bonk(self, ctx, member: discord.Member, cell="1", sentence_time: int = 30):
         if get(member.guild.roles, name="Server Booster") in member.roles or \
-                get(member.guild.roles, name="Authority Ping") in member.roles:
+                get(member.guild.roles, name="Authority Ping") in member.roles or member.id == 678269158000951307:
             await ctx.channel.send("This member cannot be bonked")
             return
         if sentence_time <= 0:
