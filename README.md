@@ -22,7 +22,7 @@
 </div>
 
 ## About
-The Warden is a custom bot who's main feature is the ability to give users a pre-set role and automatically remove it after a timer runs out, which is useful for operating the "honry jail" in the server The Warden was developed for. It can also send the most recently deleted message in a channel, act as a music bot, and remind you to go to online class.
+The Warden is a custom bot who's main feature is the ability to give users a pre-set role and automatically remove it after a timer runs out, which is useful for operating the "honry jail" in the server The Warden was developed for. It can also send the most recently deleted message in a channel and play music in voice channels.
 
 Note that The Warden is not designed for useage in other servers, and there is no easy way to configure The Warden to suit your needs.
 
@@ -64,27 +64,31 @@ $ python3 main.py
 
 ## Commands
 owo help - send the help message
+
 owo bonk - send a user to horny jail
+
 owo banish - send a user to the shadow realm
+
 owo release - release a user from horny jail/the shadow realm
+
 owo s - send the most recently deleted message in a channel
+
 owo es - send the most recntly edited in a channel, pre-edit
+
 owo imbored - rickroll a voice channel
+
 owo ping - send the latency
 
 ## Contributing
 The Warden is actively being developed and contributions are always welcome
 
-List of features I want to implement:
+List of features to implement:
 - Play music from YouTube playlists
 - Track covid cases in AAPS
-- Ping to remind people to go to class according to Pioneer's bell schedule
-- Send a link to this discord repository
+- Send a link to this github repository
 - Display the current uptime
 - config.yaml file so that the bot is actually configurable
 - Make the bot configurable through commands so that it can be released into the wild
-
-Feel free to suggest a feature and maybe even offer some money with it.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
