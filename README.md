@@ -15,14 +15,13 @@
   
   <br>
   <br>
-  <!--<img src="https://i.imgur.com/qJAn3KQ.png" align="center" width="700">-->
   <img src="https://i.imgur.com/QrPkRa8.png" align="center" width="600">
 
 <br>
 </div>
 
 ## About
-The Warden is a custom bot who's main feature is the ability to give users a pre-set role and automatically remove it after a timer runs out, which is useful for operating the "honry jail" in the server The Warden was developed for. It can also send the most recently deleted message in a channel and play music in voice channels.
+The Warden is a custom bot who's main feature is the ability to give users a pre-set role and automatically remove it after a timer runs out, which is useful for operating a "jail" system in the server The Warden was developed for. It can also send the most recently deleted message in a channel and play music in voice channels.
 
 Note that The Warden is not designed for useage in other servers, and there is no easy way to configure The Warden to suit your needs.
 
