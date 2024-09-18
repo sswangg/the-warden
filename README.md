@@ -1,6 +1,4 @@
 ## About
-My 9th grade was fully online, and sometimes, 14-year-olds just want to be annoying. My friends and I wanted a way to moderate users without kicking or banning them, and instead opt for simply restricting their activity for a set period of time.
-
 The Warden is a custom Discord bot who's main feature is the ability to give users a pre-set role and automatically remove it after a timer runs out, which was useful for operating a time-out system in the server The Warden was developed for. During time-out, users would be restricted to talking to the moderators.
 
 Other features:
