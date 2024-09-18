@@ -44,8 +44,6 @@ $ python3 main.py
 ```
 
 ## Contributing
-The Warden is actively being developed and contributions are always welcome
-
 List of features to implement:
 - Play music from YouTube playlists
 - Track covid cases in AAPS specfically
