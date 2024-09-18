@@ -1,29 +1,13 @@
-<div align="center">
-  <img src="https://i.imgur.com/zDCzeOH.png" align="center" width="450">
-  <br>
-  <strong><i>A unique moderation bot for Discord</i></strong>
-  <br>
-  <br>
-
-  <a href="https://www.python.org/downloads/">
-    <img src="https://img.shields.io/badge/Made%20With-Python%203.9-blue.svg?style=for-the-badge&logo=Python" alt="Made with Python 3.9">
-  </a>
-
-  <a href="https://github.com/sswangg/the-warden/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-mit-e74c3c.svg?style=for-the-badge" alt="MIT License">
-  </a>
-  
-  <br>
-  <br>
-  <img src="https://i.imgur.com/1hBMu81.png" align="center" width="600">
-
-<br>
-</div>
-
 ## About
-The Warden is a custom bot who's main feature is the ability to give users a pre-set role and automatically remove it after a timer runs out, which is useful for operating a "jail" system in the server The Warden was developed for. It can also send the most recently deleted message in a channel and play music in voice channels.
+My 9th grade was fully online, and sometimes, 14-year-olds just want to be annoying. My friends and I wanted a way to moderate users without kicking or banning them, and instead opt for simply restricting their activity for a set period of time.
 
-Note that The Warden is not designed for useage in other servers, and there is no easy way to configure The Warden to suit your needs.
+The Warden is a custom Discord bot who's main feature is the ability to give users a pre-set role and automatically remove it after a timer runs out, which was useful for operating a time-out system in the server The Warden was developed for. During time-out, users would be restricted to talking to the moderators.
+
+Other features:
+- Join a voice channel, and play Rick Astley's "Never Gonna Give You Up"
+- Webscrape for data on Covid-19 cases in Washtenaw County
+- "Snipe" the most recently deleted message
+- Features can be toggled on and off
 
 ## Setup
 
@@ -61,33 +45,13 @@ And start The Warden
 $ python3 main.py
 ```
 
-## Commands
-owo help - send the help message
-
-owo bonk - send a user to horny jail
-
-owo banish - send a user to the shadow realm
-
-owo release - release a user from horny jail/the shadow realm
-
-owo s - send the most recently deleted message in a channel
-
-owo es - send the most recntly edited in a channel, pre-edit
-
-owo imbored - rickroll a voice channel
-
-owo ping - send the latency
-
 ## Contributing
 The Warden is actively being developed and contributions are always welcome
 
 List of features to implement:
 - Play music from YouTube playlists
-- Track covid cases in AAPS
-- Send a link to this github repository
+- Track covid cases in AAPS specfically
 - Display the current uptime
-- config.yaml file so that the bot is actually configurable
-- Make the bot configurable through commands so that it can be released into the wild
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
