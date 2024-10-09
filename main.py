@@ -7,7 +7,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
-bot = commands.Bot(command_prefix=("owo ", "uwu "))
+COMMAND_PREFIX = "!!"
+bot = commands.Bot(command_prefix=f"{COMMAND_PREFIX}")
 bot.remove_command("help")
 
 

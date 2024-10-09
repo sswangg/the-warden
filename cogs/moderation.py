@@ -4,6 +4,8 @@ import discord
 from discord.ext import commands
 from discord.utils import get
 
+from main import COMMAND_PREFIX
+
 
 def is_authority():
     """Checks that a member is a mod"""
